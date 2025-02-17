@@ -9,8 +9,8 @@ export default function Navbar() {
   const [cartTotal, setCartTotal] = useState(57.0);
 
   return (
-    <div className="bg-white">
-
+    <div className="bg-white sticky top-0 ">
+      {/* top  */}
       <div className=" bg-gray-900 text-gray-400 text-sm px-10 py-2 flex justify-between items-center">
         {/* Left Side: Store Location */}
         <div className="flex items-center">
@@ -23,13 +23,13 @@ export default function Navbar() {
           <button className="hover:text-white">Eng ⌄</button>
           <button className="hover:text-white">USD ⌄</button>
           <span className="text-gray-500">|</span>
-          <button className="hover:text-white">Sign In</button>
+          <Link href="/Pages/signin" className="hover:text-white">Sign In</Link>
           <span>/</span>
-          <button className="hover:text-white">Sign Up</button>
+          <Link href="/Pages/signup" className="hover:text-white">Sign Up</Link>
         </div>
       </div>
-
-      <nav className=" shadow-md p-4 flex justify-between items-center   px-10 ">
+      {/* middle */}
+      <nav className=" shadow-md p-4 flex justify-between items-center px-10 ">
         {/* Logo */}
         <div className="text-green-600 font-bold text-xl flex items-center">
           <span className="mr-2">🌱</span> Ecobazar
@@ -56,7 +56,7 @@ export default function Navbar() {
         </div>
 
       </nav>
-
+      {/* end  */}
       <div className="flex justify-between py-2   px-10">
         <div className="flex items-center space-x-6">
           <Link href="/" className="text-green-600 font-semibold text-lg">
