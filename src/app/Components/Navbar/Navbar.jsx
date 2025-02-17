@@ -2,6 +2,7 @@
 import { useState } from "react";
 import { ShoppingCart, Heart, Phone } from "lucide-react";
 import { FaPhone } from "react-icons/fa";
+import Link from "next/link";
 
 export default function Navbar() {
   const [cartItems, setCartItems] = useState(2);
@@ -9,7 +10,26 @@ export default function Navbar() {
 
   return (
     <div className="bg-white">
-      <nav className=" shadow-md p-4 flex justify-between items-center   px-16 ">
+
+      <div className=" bg-gray-900 text-gray-400 text-sm px-10 py-2 flex justify-between items-center">
+        {/* Left Side: Store Location */}
+        <div className="flex items-center">
+          <span className="mr-2">📍</span>
+          <p>Store Location: Lincoln- 344, Illinois, Chicago, USA</p>
+        </div>
+
+        {/* Right Side: Language, Currency, Auth Links */}
+        <div className="flex items-center space-x-4">
+          <button className="hover:text-white">Eng ⌄</button>
+          <button className="hover:text-white">USD ⌄</button>
+          <span className="text-gray-500">|</span>
+          <button className="hover:text-white">Sign In</button>
+          <span>/</span>
+          <button className="hover:text-white">Sign Up</button>
+        </div>
+      </div>
+
+      <nav className=" shadow-md p-4 flex justify-between items-center   px-10 ">
         {/* Logo */}
         <div className="text-green-600 font-bold text-xl flex items-center">
           <span className="mr-2">🌱</span> Ecobazar
@@ -33,23 +53,19 @@ export default function Navbar() {
             <p className="text-sm">Shopping cart: <strong>${cartTotal.toFixed(2)}</strong></p>
           </div>
 
-          <div>
-            <button>login</button> / <button>sign up</button>
-          </div>
-
         </div>
 
       </nav>
 
-      <div className="flex justify-between py-2   px-16 ">
+      <div className="flex justify-between py-2   px-10">
         <div className="flex items-center space-x-6">
-          <a href="#" className="text-green-600 font-semibold text-lg">
+          <Link href="/" className="text-green-600 font-semibold text-lg">
             Home
-          </a>
+          </Link>
           <div className="relative group">
-            <button className="text-gray-700 hover:text-green-600 flex items-center">
+            <Link href={'/Shop'} className="text-gray-700 hover:text-green-600 flex items-center">
               Shop ▾
-            </button>
+            </Link>
             <div className="absolute hidden group-hover:block bg-white shadow-md mt-2 py-2 w-40">
               <a href="#" className="block px-4 py-2 hover:bg-gray-100">Product 1</a>
               <a href="#" className="block px-4 py-2 hover:bg-gray-100">Product 2</a>
